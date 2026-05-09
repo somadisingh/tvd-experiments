@@ -1,0 +1,24 @@
+======================================================================
+Sparsification Shape-Change Measurement
+======================================================================
+
+
+    W1 tightness ratio W1(R,R~)/bound per family
+    support > interval count so merging is actually forced.
+    eps_s=0.3, delta_s=0.015  (37 intervals; support>37 for n>=10)
+
+  B_adversarial             n=14  mean_tightness=8.0770  max=8.0770  frac>0.5=1.00  n_merged=25/25
+  C_random                  n=12  mean_tightness=7.8087  max=10.5189  frac>0.5=1.00  n_merged=25/25
+  D_skewed                  n=12  mean_tightness=10.4161  max=11.6487  frac>0.5=1.00  n_merged=25/25
+  E_nearly_identical        n=10  mean_tightness=0.5574  max=1.1972  frac>0.5=0.68  n_merged=25/25
+
+W1 distance vs bound across eps_s (forcing n per family)
+  B_adversarial             n=14: mean tightness = 8.5044  compression range = 7.0x – 8.8x
+  C_random                  n=12: mean tightness = 9.2873  compression range = 49.5x – 169.8x
+  D_skewed                  n=12: mean tightness = 11.4532  compression range = 356.4x – 751.7x
+  E_nearly_identical        n=10: mean tightness = 2825493.7583  compression range = 11.9x – 30.6x
+
+Cumulative W1 and TV error through full algorithm (n=12)
+  B_adversarial            : final TV_error=1.11e-16  final W1=0.237010  final bound=0.077325  W1_tightness=3.0651
+  C_random                 : final TV_error=1.53e-04  final W1=1.008005  final bound=0.087450  W1_tightness=11.5267
+  E_nearly_identical       : final TV_error=1.39e-17  final W1=0.000181  final bound=0.005946  W1_tightness=0.0304

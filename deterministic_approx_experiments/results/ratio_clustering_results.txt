@@ -1,0 +1,14 @@
+======================================================================
+Ratio Clustering Near r=1
+======================================================================
+
+Distribution of ratio values within [0.9, 1.1]
+    eps_s=0.1, delta_s=0.005
+  n= 8, B_adversarial            :    15 values near 1 (across 5 trials)
+  n= 8, E_nearly_identical       :   385 values near 1 (across 5 trials)
+  n=12, B_adversarial            :    25 values near 1 (across 5 trials)
+  n=12, E_nearly_identical       :  2874 values near 1 (across 5 trials)
+
+Interval occupancy (points per geometric interval)
+  n=10, B_adversarial            : 0.0% of intervals have exactly 1 point (cannot merge), max=17
+  n=10, E_nearly_identical       : 22.1% of intervals have exactly 1 point (cannot merge), max=969

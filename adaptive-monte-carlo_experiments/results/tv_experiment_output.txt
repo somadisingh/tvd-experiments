@@ -1,0 +1,65 @@
+=================================================================
+EXPERIMENT 1 — Fixed n=8, vary marginal TV gap
+  ε=0.5, δ=0.1, 4 trials per condition
+=================================================================
+  gap=0.05 | true_TV=0.1137 | fixed_est=0.1126  adapt_est=0.1142 | fixed=  7680  adaptive=  897  speedup=8.56×
+  gap=0.10 | true_TV=0.2308 | fixed_est=0.2324  adapt_est=0.2337 | fixed=  7680  adaptive=  760  speedup=10.10×
+  gap=0.15 | true_TV=0.3431 | fixed_est=0.3425  adapt_est=0.3480 | fixed=  7680  adaptive=  754  speedup=10.19×
+  gap=0.20 | true_TV=0.4426 | fixed_est=0.4418  adapt_est=0.4419 | fixed=  7680  adaptive=  729  speedup=10.53×
+  gap=0.25 | true_TV=0.5340 | fixed_est=0.5308  adapt_est=0.5281 | fixed=  7680  adaptive=  724  speedup=10.60×
+  gap=0.30 | true_TV=0.6524 | fixed_est=0.6547  adapt_est=0.6601 | fixed=  7680  adaptive=  720  speedup=10.67×
+  gap=0.35 | true_TV=0.7503 | fixed_est=0.7518  adapt_est=0.7626 | fixed=  7680  adaptive=  720  speedup=10.67×
+  gap=0.40 | true_TV=0.8174 | fixed_est=0.8171  adapt_est=0.8099 | fixed=  7680  adaptive=  720  speedup=10.67×
+
+=================================================================
+EXPERIMENT 2 — Vary n, fixed marginal TV gap = 0.3
+  ε=0.5, δ=0.1, 4 trials per condition
+=================================================================
+  n= 2 | fixed=  1920  adaptive=  720  speedup=2.67×  | true_TV=0.3900  fixed_est=0.3886  adapt_est=0.3876
+  n= 3 | fixed=  2880  adaptive=  753  speedup=3.82×  | true_TV=0.3960  fixed_est=0.3908  adapt_est=0.4015
+  n= 4 | fixed=  3840  adaptive=  720  speedup=5.33×  | true_TV=0.5067  fixed_est=0.5099  adapt_est=0.5036
+  n= 5 | fixed=  4800  adaptive=  720  speedup=6.67×  | true_TV=0.5498  fixed_est=0.5513  adapt_est=0.5531
+  n= 6 | fixed=  5760  adaptive=  726  speedup=7.93×  | true_TV=0.5574  fixed_est=0.5562  adapt_est=0.5591
+  n= 7 | fixed=  6720  adaptive=  720  speedup=9.33×  | true_TV=0.6254  fixed_est=0.6256  adapt_est=0.6202
+  n= 8 | fixed=  7680  adaptive=  720  speedup=10.67×  | true_TV=0.6524  fixed_est=0.6498  adapt_est=0.6513
+  n= 9 | fixed=  8640  adaptive=  720  speedup=12.00×  | true_TV=0.6605  fixed_est=0.6579  adapt_est=0.6569
+  n=10 | fixed=  9600  adaptive=  720  speedup=13.33×  | true_TV=0.7073  fixed_est=0.7089  adapt_est=0.7094
+  n=11 | fixed= 10560  adaptive=  720  speedup=14.67×  | true_TV=0.7256  fixed_est=0.7270  adapt_est=0.7360
+  n=12 | fixed= 11520  adaptive=  720  speedup=16.00×  | true_TV=0.7336  fixed_est=0.7338  adapt_est=0.7311
+  n=13 | fixed= 12480  adaptive=  720  speedup=17.33×  | true_TV=0.7674  fixed_est=0.7686  adapt_est=0.7729
+Traceback (most recent call last):
+  File "/Users/somaditya/Desktop/Algo ML DS/ps4/tv_experiment.py", line 345, in <module>
+    plt.savefig(out, dpi=150, bbox_inches='tight')
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/somaditya/Desktop/Algo ML DS/ps4/.venv/lib/python3.14/site-packages/matplotlib/pyplot.py", line 1250, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+  File "/Users/somaditya/Desktop/Algo ML DS/ps4/.venv/lib/python3.14/site-packages/matplotlib/figure.py", line 3497, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/somaditya/Desktop/Algo ML DS/ps4/.venv/lib/python3.14/site-packages/matplotlib/backend_bases.py", line 2186, in print_figure
+    result = print_method(
+        filename,
+    ...<3 lines>...
+        bbox_inches_restore=_bbox_inches_restore,
+        **kwargs)
+  File "/Users/somaditya/Desktop/Algo ML DS/ps4/.venv/lib/python3.14/site-packages/matplotlib/backend_bases.py", line 2042, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ~~~~^
+        *args, **{k: v for k, v in kwargs.items() if k not in skip}))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/somaditya/Desktop/Algo ML DS/ps4/.venv/lib/python3.14/site-packages/matplotlib/backends/backend_agg.py", line 481, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/somaditya/Desktop/Algo ML DS/ps4/.venv/lib/python3.14/site-packages/matplotlib/backends/backend_agg.py", line 430, in _print_pil
+    mpl.image.imsave(
+    ~~~~~~~~~~~~~~~~^
+        filename_or_obj, self.buffer_rgba(), format=fmt, origin="upper",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        dpi=self.figure.dpi, metadata=metadata, pil_kwargs=pil_kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/somaditya/Desktop/Algo ML DS/ps4/.venv/lib/python3.14/site-packages/matplotlib/image.py", line 1657, in imsave
+    image.save(fname, **pil_kwargs)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/somaditya/Desktop/Algo ML DS/ps4/.venv/lib/python3.14/site-packages/PIL/Image.py", line 2708, in save
+    fp = builtins.open(filename, "w+b")
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/user-data/outputs/adaptive_vs_fixed.png'

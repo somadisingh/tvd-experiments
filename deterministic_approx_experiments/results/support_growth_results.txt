@@ -1,0 +1,17 @@
+======================================================================
+Support Size Growth
+======================================================================
+
+Support trajectory (n=12, eps=0.15)
+  B_adversarial              TV=0.8436  peak_before=18  peak_after_s=12  final=22
+  C_random                   TV=0.8122  peak_before=606  peak_after_s=303  final=540
+  D_skewed                   TV=0.9989  peak_before=18  peak_after_s=11  final=22
+  E_nearly_identical         TV=0.1116  peak_before=1124  peak_after_s=742  final=1484
+
+Peak support vs n
+  B_adversarial              peaks(n=[6, 8, 10, 12, 14]) = [9, 13, 16, 18, 18]
+  C_random                   peaks(n=[6, 8, 10, 12, 14]) = [26, 81, 170, 423, 631]
+  D_skewed                   peaks(n=[6, 8, 10, 12, 14]) = [6, 11, 13, 18, 31]
+  E_nearly_identical         peaks(n=[6, 8, 10, 12, 14]) = [26, 93, 353, 978, 1494]
+
+Ratio spread vs compression ratio (scatter)

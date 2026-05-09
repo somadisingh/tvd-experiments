@@ -1,0 +1,78 @@
+========================================================================
+CHECKS 1–5: ANALYTICAL VERIFICATION
+========================================================================
+
+── n=2 (manual)  (Simple 2-coord case)
+  [PASS]  1. π sums to 1.00000000  (want 1.0)
+  [PASS]  2. E_π[f] = 0.769231  vs  d_TV/γ = 0.769231  (diff 0.00e+00)
+  [PASS]  3. f(x) ∈ [0,1] for all x with π(x)>0
+  [PASS]  4. Var_π[f] = 0.122130  ≤  E_π[f] = 0.769231
+         >>> Var/E[f] = 0.1588  (worst-case bound is 1.0)
+         >>> CV²      = 0.2064
+         >>> True m₀  = 9 samples/batch  vs fixed m = 80
+  [PASS]  5. KL(true π ‖ sampled π) = 0.00001  (want < 0.005)
+
+── n=8 gap=0.05  (Low separation — suspicious speedup)
+  [PASS]  1. π sums to 1.00000000  (want 1.0)
+  [PASS]  2. E_π[f] = 0.337736  vs  d_TV/γ = 0.337736  (diff 2.22e-16)
+  [PASS]  3. f(x) ∈ [0,1] for all x with π(x)>0
+  [PASS]  4. Var_π[f] = 0.097265  ≤  E_π[f] = 0.337736
+         >>> Var/E[f] = 0.2880  (worst-case bound is 1.0)
+         >>> CV²      = 0.8527
+         >>> True m₀  = 35 samples/batch  vs fixed m = 320
+  [PASS]  5. KL(true π ‖ sampled π) = 0.00145  (want < 0.005)
+
+── n=8 gap=0.40  (High separation)
+  [PASS]  1. π sums to 1.00000000  (want 1.0)
+  [PASS]  2. E_π[f] = 0.831340  vs  d_TV/γ = 0.831340  (diff 1.11e-16)
+  [PASS]  3. f(x) ∈ [0,1] for all x with π(x)>0
+  [PASS]  4. Var_π[f] = 0.108437  ≤  E_π[f] = 0.831340
+         >>> Var/E[f] = 0.1304  (worst-case bound is 1.0)
+         >>> CV²      = 0.1569
+         >>> True m₀  = 7 samples/batch  vs fixed m = 320
+  [PASS]  5. KL(true π ‖ sampled π) = 0.00155  (want < 0.005)
+
+========================================================================
+CHECK 6: ADAPTIVE STOPPING TIME vs ANALYTICAL TRUE MINIMUM
+========================================================================
+
+  gap=0.05  |  true_TV=0.1137  γ=0.3366
+    Analytical:  E_π[f]=0.3377  Var_π[f]=0.0973  CV²=0.8527
+    True m₀ (Chebyshev exact):  35 samples/batch
+    Fixed m (worst-case bound): 320 samples/batch
+    Adaptive avg stop time T:   36.0 samples/batch  (≈ TRUE)
+    Theoretical speedup: 9.1×   Observed speedup: 8.9×
+
+  gap=0.20  |  true_TV=0.4426  γ=0.8322
+    Analytical:  E_π[f]=0.5318  Var_π[f]=0.1428  CV²=0.5047
+    True m₀ (Chebyshev exact):  21 samples/batch
+    Fixed m (worst-case bound): 320 samples/batch
+    Adaptive avg stop time T:   30.8 samples/batch  (≈ TRUE)
+    Theoretical speedup: 15.2×   Observed speedup: 10.4×
+
+  gap=0.40  |  true_TV=0.8174  γ=0.9832
+    Analytical:  E_π[f]=0.8313  Var_π[f]=0.1084  CV²=0.1569
+    True m₀ (Chebyshev exact):  7 samples/batch
+    Fixed m (worst-case bound): 320 samples/batch
+    Adaptive avg stop time T:   30.0 samples/batch  (MISMATCH)
+    Theoretical speedup: 45.7×   Observed speedup: 10.7×
+
+========================================================================
+CHECK 7: ACCURACY — both estimates within ε of true TV over 30 runs
+========================================================================
+
+  gap=0.05  true_TV=0.1137  (ε=0.5, 30 independent runs)
+    Fixed   — mean rel. error: 0.0114  max: 0.0285  failures (>ε): 0/30
+    Adaptive— mean rel. error: 0.0287  max: 0.1010  failures (>ε): 0/30
+
+  gap=0.20  true_TV=0.4426  (ε=0.5, 30 independent runs)
+    Fixed   — mean rel. error: 0.0073  max: 0.0211  failures (>ε): 0/30
+    Adaptive— mean rel. error: 0.0290  max: 0.0797  failures (>ε): 0/30
+
+  gap=0.40  true_TV=0.8174  (ε=0.5, 30 independent runs)
+    Fixed   — mean rel. error: 0.0047  max: 0.0108  failures (>ε): 0/30
+    Adaptive— mean rel. error: 0.0159  max: 0.0619  failures (>ε): 0/30
+
+========================================================================
+SANITY CHECK COMPLETE
+========================================================================
