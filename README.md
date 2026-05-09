@@ -98,8 +98,3 @@ python criterion_isolation_test.py
 
 The narrative synthesis of all three adaptive experiments (what they prove separately, implications for \(\varepsilon = 0.5\) vs \(0.1\), suggested paper tweaks) is in **`experiments_analysis.md`** — read that alongside the `.txt` artifacts in [`results/`](adaptive-monte-carlo_experiments/results/).
 
----
-
-## License / paper
-
-Internal research code; include your own licensing if you distribute it. References to paper sections (“Theorem 5.x”, adaptive stopping recipe) assume a companion write-up referenced from `experiments_analysis.md`.
